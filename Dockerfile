@@ -19,7 +19,8 @@ RUN pip install "docker-compose${COMPOSE_VERSION:+==}${COMPOSE_VERSION}"
 RUN addgroup -S -g 1000 docker && adduser -S -G docker -u 1000 docker
 
 RUN docker --version && \
-    docker-compose --version
+    docker-compose --version && \
+    git --version
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
