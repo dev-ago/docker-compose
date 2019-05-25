@@ -16,7 +16,13 @@ RUN apk add --no-cache \
 
 RUN pip install "docker-compose${COMPOSE_VERSION:+==}${COMPOSE_VERSION}"
 
-COPY docker-entrypoint.sh /
+RUN addgroup -S -g 1000 docker && adduser -S -G docker -u 1000 docker
+
+RUN docker --version && \
+    docker-compose --version && \
+
+COPY docker-entrypoint.sh /usr/local/bin/
+
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["sh"]
