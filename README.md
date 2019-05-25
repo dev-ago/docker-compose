@@ -20,6 +20,8 @@ image: devago/docker-compose
 before_script:
   - docker info
   - docker-compose --version
+  - git --version
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   
 build-your-images:
   stage: build
