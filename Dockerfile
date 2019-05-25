@@ -1,4 +1,6 @@
-FROM alpine:3.9
+ARG DOCKER_VERSION=
+ARG COMPOSE_VERSION=
+FROM docker:${DOCKER_VERSION}
 
 RUN apk add --no-cache \
 		ca-certificates \
@@ -11,6 +13,9 @@ RUN apk add --no-cache \
 		bash \
 		git
 
-RUN pip install docker-compose==1.23.2
+RUN pip install docker-compose==${COMPOSE_VERSION}
 
-CMD ["/bin/sh"]
+COPY docker-entrypoint.sh /usr/local/bin/
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["sh"]
