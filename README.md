@@ -11,7 +11,7 @@ Include the current versions version of `docker` and `docker-compose`:
 
 ## Usage examples for Gitlab CI/CD
 
-You can use this image in you `.gitlab-ci.yml` file
+You can use this image in you `.gitlab-ci.yml` file:
 
 ```` yml
 image: devago/docker-compose
