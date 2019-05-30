@@ -27,11 +27,4 @@ if [ "$1" = 'dockerd' ]; then
 	sleep 3
 fi
 
-if [ "$NO_ROOT_MODE" != "1" ]; then
-	echo "Docker running as root"
-    exec "$@"
-else
-	user="docker"
-	echo "Docker running as $user"
-	su-exec $user "$@"
-fi
+exec "$@"
