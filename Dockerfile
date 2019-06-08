@@ -1,6 +1,7 @@
 ARG DOCKER_VERSION=18.09.6
 ARG COMPOSE_VERSION=1.24.0rc3
 
+MAINTAINER Antony Goetzschel <mail@ago.dev>
 FROM docker:${DOCKER_VERSION}
 
 RUN apk add --no-cache \
