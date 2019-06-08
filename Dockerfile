@@ -28,7 +28,3 @@ COPY docker-entrypoint.sh /usr/local/bin/
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["sh"]
-
-LABEL org.label-schema.docker.dockerfile="/Dockerfile" \
-      org.label-schema.vcs-type="Git" \
-      org.label-schema.vcs-url="https://github.com/dev-ago/docker-network-utils"
