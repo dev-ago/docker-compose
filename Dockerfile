@@ -1,8 +1,9 @@
 ARG DOCKER_VERSION=18.09.6
 ARG COMPOSE_VERSION=1.24.0rc3
 
-MAINTAINER Antony Goetzschel <mail@ago.dev>
 FROM docker:${DOCKER_VERSION}
+
+MAINTAINER Antony Goetzschel <mail@ago.dev>
 
 RUN apk add --no-cache \
 		ca-certificates \
@@ -28,3 +29,7 @@ COPY docker-entrypoint.sh /usr/local/bin/
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["sh"]
+
+LABEL org.label-schema.docker.dockerfile="/Dockerfile" \
+      org.label-schema.vcs-type="Git" \
+      org.label-schema.vcs-url="https://github.com/dev-ago/docker-network-utils"
