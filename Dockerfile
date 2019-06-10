@@ -14,7 +14,8 @@ RUN apk add --no-cache \
 		libc-dev \
 		make \
 		bash \
-		git
+		git \
+		curl
 
 RUN pip install "docker-compose${COMPOSE_VERSION:+==}${COMPOSE_VERSION}"
 
