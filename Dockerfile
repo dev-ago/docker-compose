@@ -25,8 +25,9 @@ RUN docker --version && \
     docker-compose --version && \
     git --version
 
+## docker-entrypoint.sh from Docker-Docker-Image
+##  https://github.com/docker-library/docker/tree/6001c15038b05149a83dcc17e1bbeedc92979f6d
 COPY docker-entrypoint.sh /usr/local/bin/
-
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["sh"]
