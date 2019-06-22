@@ -5,6 +5,10 @@ FROM docker:${DOCKER_VERSION}
 
 MAINTAINER Antony Goetzschel <mail@ago.dev>
 
+RUN apk update
+
+RUN apk upgrade
+
 RUN apk add --no-cache \
 		ca-certificates \
 		py-pip python-dev \
