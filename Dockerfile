@@ -1,5 +1,5 @@
-ARG DOCKER_VERSION=19.03.3
-ARG COMPOSE_VERSION=1.24.1
+ARG DOCKER_VERSION=19.03.13
+ARG COMPOSE_VERSION=1.27.4
 
 FROM docker:${DOCKER_VERSION}
 
@@ -11,7 +11,8 @@ RUN apk upgrade
 
 RUN apk add --no-cache \
 		ca-certificates \
-		py-pip python-dev \
+		python3-dev \
+		py3-pip \
 		libffi-dev \
 		openssl-dev \
 		gcc \
@@ -21,7 +22,9 @@ RUN apk add --no-cache \
 		git \
 		curl
 
-RUN pip install "docker-compose${COMPOSE_VERSION:+==}${COMPOSE_VERSION}"
+RUN pip3 install "docker-compose${COMPOSE_VERSION:+==}${COMPOSE_VERSION}"
+
+RUN pip3 list
 
 RUN addgroup -S -g 1000 docker && adduser -S -G docker -u 1000 docker
 
