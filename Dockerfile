@@ -10,6 +10,7 @@ RUN apk update
 RUN apk upgrade
 
 RUN apk add --no-cache \
+		libseccomp \
 		ca-certificates \
 		python3-dev \
 		py3-pip \
