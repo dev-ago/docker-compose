@@ -1,5 +1,5 @@
-ARG DOCKER_VERSION=20.10.14-r0
-ARG COMPOSE_VERSION=1.29.2-r1
+ARG DOCKER_VERSION=20.10.14
+ARG COMPOSE_VERSION=1.29.2
 
 FROM docker:${DOCKER_VERSION}
 
@@ -10,6 +10,7 @@ RUN apk update
 RUN apk upgrade
 
 RUN apk add --no-cache \
+		libseccomp \
 		ca-certificates \
 		python3-dev \
 		py3-pip \
