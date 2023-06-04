@@ -1,5 +1,4 @@
-ARG DOCKER_VERSION=20.10.14
-ARG COMPOSE_VERSION=1.29.2
+ARG DOCKER_VERSION=23.0.5
 
 FROM docker:${DOCKER_VERSION}
 
@@ -22,19 +21,12 @@ RUN apk add --no-cache \
 		bash \
 		git \
 		curl
+RUN pip3 install --upgrade pip
 
-RUN pip3 install "docker-compose${COMPOSE_VERSION:+==}${COMPOSE_VERSION}"
-
-RUN pip3 list
+RUN pip3 install ansible
 
 RUN addgroup -S -g 1000 docker && adduser -S -G docker -u 1000 docker
 
-RUN docker --version && \
-    docker-compose --version && \
-    git --version
-
-## docker-entrypoint.sh from Docker-Docker-Image
-##  https://github.com/docker-library/docker/tree/6001c15038b05149a83dcc17e1bbeedc92979f6d
 COPY docker-entrypoint.sh /usr/local/bin/
 
 ENTRYPOINT ["docker-entrypoint.sh"]
